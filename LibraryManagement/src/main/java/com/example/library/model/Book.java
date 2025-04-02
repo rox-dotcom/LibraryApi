@@ -39,7 +39,7 @@ public class Book {
     @Min(1) // Minimum value for the number of pages
     private Integer pages;
 
-    @Column(name = "created_at", nullable = false, insertable = false, updatable = false)
+    @Column(name = "CREATED_AT", nullable = false, insertable = false, updatable = false)
     private Timestamp createdAt; // Timestamp for when the book was created
 
     // Getters and Setters

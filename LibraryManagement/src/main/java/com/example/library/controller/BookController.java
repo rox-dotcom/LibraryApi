@@ -2,12 +2,16 @@ package com.example.library.controller;
 
 import com.example.library.model.Book;
 import com.example.library.repository.BookRepository;
+
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
@@ -28,7 +32,8 @@ public class BookController {
     }
 
     @PostMapping
-    public Book createBook(@RequestBody Book book) {
+    public Book createBook(@Valid @RequestBody Book book) {
+        System.out.println("Received Book: " + book);
         return bookRepository.save(book);
     }
 
